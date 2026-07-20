@@ -720,6 +720,143 @@
         border: 1px solid rgba(212, 160, 23, 0.2);
       }
 
+      /* ── animations ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+          transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-40px);
+        transition:
+          opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+          transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .reveal-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .reveal-scale {
+        opacity: 0;
+        transform: scale(0.92);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .reveal-scale.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(212, 160, 23, 0.15);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(212, 160, 23, 0.3);
+        }
+      }
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes count-pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.06);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .hero-content {
+        animation: fade-in-up 0.8s ease-out;
+      }
+      .hero .tag {
+        animation: fade-in-up 0.6s ease-out 0.15s both;
+      }
+      .hero h1 {
+        animation: fade-in-up 0.6s ease-out 0.3s both;
+      }
+      .hero .sub {
+        animation: fade-in-up 0.6s ease-out 0.45s both;
+      }
+      .hero .quote {
+        animation: fade-in-up 0.6s ease-out 0.6s both;
+      }
+      .hero .btn-group {
+        animation: fade-in-up 0.6s ease-out 0.75s both;
+      }
+      .stat.counting .num {
+        animation: count-pulse 0.4s ease-out;
+      }
+      .gallery-item {
+        overflow: hidden;
+      }
+      .gallery-item span:first-child {
+        transition: transform 0.4s ease;
+      }
+      .gallery-item:hover span:first-child {
+        transform: scale(1.2);
+      }
+      .phil-card,
+      .feature,
+      .mp-card,
+      .museum-item,
+      .crew-card,
+      .act-detail {
+        transition:
+          transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+          border-color 0.3s,
+          box-shadow 0.35s ease;
+      }
+      .phil-card:hover,
+      .feature:hover,
+      .mp-card:hover,
+      .crew-card:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+      .act {
+        transition:
+          border-color 0.3s,
+          box-shadow 0.35s ease;
+      }
+      .act:hover {
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+      }
+      .btn {
+        transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px) scale(1.02);
+      }
+      .btn-outline:hover {
+        transform: translateY(-3px) scale(1.02);
+      }
+      .mp-hero {
+        animation: pulse-glow 3s ease-in-out infinite;
+      }
+      nav {
+        transition:
+          background 0.3s,
+          box-shadow 0.3s;
+      }
+
       /* responsive */
       @media (max-width: 768px) {
         nav ul {
@@ -802,8 +939,10 @@
     </section>
 
     <!-- PHILOSOPHY -->
-    <section id="tinh-than">
-      <div class="section-label">Triết lý</div>
+    <section class="reveal" id="tinh-than">
+      <div class="section-label reveal" style="transition-delay: 0s">
+        Triết lý
+      </div>
       <h2>Tinh thần của <span class="highlight">Điện Biên Phủ 1954</span></h2>
       <p class="lede">
         Bạn không phải một người hùng đơn độc. Bạn là một người lính trong đại
@@ -811,7 +950,7 @@
         của cả đơn vị.
       </p>
       <div class="philosophy">
-        <div class="phil-card">
+        <div class="phil-card reveal">
           <div class="icon"><i class="bi bi-patch-check"></i></div>
           <h4>Một người lính</h4>
           <p>
@@ -819,7 +958,7 @@
             năng, đồng đội và ý chí.
           </p>
         </div>
-        <div class="phil-card">
+        <div class="phil-card reveal">
           <div class="icon"><i class="bi bi-people"></i></div>
           <h4>Đồng đội là tất cả</h4>
           <p>
@@ -827,7 +966,7 @@
             cùng bạn xuyên suốt 56 ngày.
           </p>
         </div>
-        <div class="phil-card">
+        <div class="phil-card reveal">
           <div class="icon"><i class="bi bi-box-seam"></i></div>
           <h4>Hậu cần & chỉ huy</h4>
           <p>
@@ -835,7 +974,7 @@
             cả đều quan trọng.
           </p>
         </div>
-        <div class="phil-card">
+        <div class="phil-card reveal">
           <div class="icon"><i class="bi bi-globe2"></i></div>
           <h4>Chiến trường sống</h4>
           <p>
@@ -847,8 +986,10 @@
     </section>
 
     <!-- CAMPAIGN OVERVIEW -->
-    <section id="campaign">
-      <div class="section-label">Chiến dịch</div>
+    <section class="reveal" id="campaign">
+      <div class="section-label reveal" style="transition-delay: 0s">
+        Chiến dịch
+      </div>
       <h2>56 ngày — <span class="highlight">5 hồi</span></h2>
       <p class="lede">
         Một hành trình dài từ tân binh nhập ngũ đến ngày chiến thắng, với hơn
@@ -857,26 +998,26 @@
       </p>
 
       <div class="stats">
-        <div class="stat">
+        <div class="stat reveal">
           <div class="num">56</div>
           <div class="label">Ngày chiến dịch</div>
         </div>
-        <div class="stat">
+        <div class="stat reveal">
           <div class="num">120+</div>
           <div class="label">Nhiệm vụ</div>
         </div>
-        <div class="stat">
+        <div class="stat reveal">
           <div class="num">5</div>
           <div class="label">Hồi (Acts)</div>
         </div>
-        <div class="stat">
+        <div class="stat reveal">
           <div class="num">150+</div>
           <div class="label">NPC có câu chuyện</div>
         </div>
       </div>
 
       <div class="timeline">
-        <div class="act">
+        <div class="act reveal-left">
           <span class="badge badge-1">ACT I</span>
           <h3>Chuẩn bị chiến dịch</h3>
           <div class="theme">
@@ -889,7 +1030,7 @@
           </p>
           <div class="days">Ngày 1 – 14</div>
         </div>
-        <div class="act">
+        <div class="act reveal-left">
           <span class="badge badge-2">ACT II</span>
           <h3>Mở màn chiến dịch</h3>
           <div class="theme">
@@ -902,7 +1043,7 @@
           </p>
           <div class="days">Ngày 15 – 28</div>
         </div>
-        <div class="act">
+        <div class="act reveal-left">
           <span class="badge badge-3">ACT III</span>
           <h3>Cuộc chiến tiêu hao</h3>
           <div class="theme">
@@ -915,7 +1056,7 @@
           </p>
           <div class="days">Ngày 29 – 42</div>
         </div>
-        <div class="act">
+        <div class="act reveal-left">
           <span class="badge badge-4">ACT IV</span>
           <h3>Bao vây hoàn toàn</h3>
           <div class="theme">
@@ -928,7 +1069,7 @@
           </p>
           <div class="days">Ngày 43 – 49</div>
         </div>
-        <div class="act">
+        <div class="act reveal-left">
           <span class="badge badge-5">ACT V</span>
           <h3>Tổng công kích</h3>
           <div class="theme">
@@ -946,7 +1087,7 @@
     </section>
 
     <!-- FEATURES -->
-    <section id="tinh-nang">
+    <section class="reveal" id="tinh-nang">
       <div class="section-label">Tính năng</div>
       <h2>Trải nghiệm chiến trường <span class="highlight">chân thực</span></h2>
       <p class="lede">
@@ -954,41 +1095,41 @@
         thiết kế để bạn cảm nhận đúng vai trò của một người lính năm 1954.
       </p>
       <div class="features">
-        <div class="feature">
+        <div class="feature reveal">
           <div class="f-icon"><i class="bi bi-cloud-rain"></i></div>
           <h4>Thời tiết động</h4>
           <p>Mưa, sương mù, bùn lầy ảnh hưởng trực tiếp đến gameplay</p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
           <div class="f-icon"><i class="bi bi-lamp"></i></div>
           <h4>Ánh sáng & ẩn nấp</h4>
           <p>Đêm không trăng, đèn pin có hạn, âm thanh là yếu tố sinh tồn</p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
           <div class="f-icon"><i class="bi bi-tools"></i></div>
           <h4>Xây dựng công sự</h4>
           <p>
             Đào hào, gia cố, xây cầu — công trình tồn tại xuyên suốt chiến dịch
           </p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
           <div class="f-icon"><i class="bi bi-box-seam"></i></div>
           <h4>Hậu cần thực tế</h4>
           <p>
             Đạn dược, lương thực, nước — tài nguyên có giới hạn, cần ưu tiên
           </p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
           <div class="f-icon"><i class="bi bi-hospital"></i></div>
           <h4>Đồng đội & mất mát</h4>
           <p>NPC có thể hy sinh vĩnh viễn, ảnh hưởng đến các nhiệm vụ sau</p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
           <div class="f-icon"><i class="bi bi-map"></i></div>
           <h4>Chiến trường biến đổi</h4>
           <p>Hố bom, chiến hào, công sự thay đổi theo từng ngày chiến đấu</p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
           <div class="f-icon"><i class="bi bi-crosshair"></i></div>
           <h4>Đa dạng vai trò</h4>
           <p>
@@ -996,7 +1137,7 @@
             nhiệm vụ
           </p>
         </div>
-        <div class="feature">
+        <div class="feature reveal">
           <div class="f-icon"><i class="bi bi-journal"></i></div>
           <h4>Nhật ký chiến dịch</h4>
           <p>Ghi lại toàn bộ hành trình — ảnh, hội thoại, sự kiện quan trọng</p>
@@ -1005,7 +1146,7 @@
     </section>
 
     <!-- MULTIPLAYER -->
-    <section id="multiplayer">
+    <section class="reveal" id="multiplayer">
       <div class="section-label">Chơi online</div>
       <h2>Đại chiến <span class="highlight">64vs64</span></h2>
       <p class="lede">
@@ -1044,7 +1185,7 @@
         <i class="bi bi-controller" style="color: var(--gold)"></i> Chế độ chơi
       </h3>
       <div class="mp-grid">
-        <div class="mp-card">
+        <div class="mp-card reveal">
           <div class="mp-icon"><i class="bi bi-flag-fill"></i></div>
           <h4>Conquest</h4>
           <p>
@@ -1053,7 +1194,7 @@
           </p>
           <div class="mp-meta">Chiếm cứ điểm · Kiểm soát bản đồ</div>
         </div>
-        <div class="mp-card">
+        <div class="mp-card reveal">
           <div class="mp-icon"><i class="bi bi-shield-fill"></i></div>
           <h4>Breakthrough</h4>
           <p>
@@ -1062,7 +1203,7 @@
           </p>
           <div class="mp-meta">Công · Thủ · Tuyến chiến hào</div>
         </div>
-        <div class="mp-card">
+        <div class="mp-card reveal">
           <div class="mp-icon"><i class="bi bi-trophy-fill"></i></div>
           <h4>Siege Điện Biên</h4>
           <p>
@@ -1071,13 +1212,13 @@
           </p>
           <div class="mp-meta">Đặc trưng · Đào hào · Kéo pháo</div>
         </div>
-        <div class="mp-card">
+        <div class="mp-card reveal">
           <div class="mp-icon"><i class="bi bi-lightning-fill"></i></div>
           <h4>Last Stand</h4>
           <p>Không hồi sinh. Một mạng duy nhất — sinh tồn là tất cả.</p>
           <div class="mp-meta">Sinh tồn · Không hồi sinh</div>
         </div>
-        <div class="mp-card">
+        <div class="mp-card reveal">
           <div class="mp-icon"><i class="bi bi-clock-history"></i></div>
           <h4>Historical Mode</h4>
           <p>
@@ -1093,54 +1234,54 @@
         đặc biệt
       </h3>
       <div class="mp-systems">
-        <div class="mp-sys">
+        <div class="mp-sys reveal">
           <h5><i class="bi bi-person-badge"></i> Chỉ huy</h5>
           <p>
             Commander → Squad Leader → Tiểu đội. Mất chỉ huy → tinh thần giảm,
             đội hình rối loạn.
           </p>
         </div>
-        <div class="mp-sys">
+        <div class="mp-sys reveal">
           <h5><i class="bi bi-bandaid"></i> Quân y & Thương tích</h5>
           <p>
             Gãy chân, chảy máu, choáng — quân y phải cứu. Không quân y →
             spectate.
           </p>
         </div>
-        <div class="mp-sys">
+        <div class="mp-sys reveal">
           <h5><i class="bi bi-bricks"></i> Đào chiến hào</h5>
           <p>
             Đào hào, hố cá nhân, công sự, hầm trú. Chiến hào tồn tại suốt trận.
           </p>
         </div>
-        <div class="mp-sys">
+        <div class="mp-sys reveal">
           <h5><i class="bi bi-truck"></i> Hậu cần</h5>
           <p>
             Kéo pháo, mang đạn, xe đạp thồ, cáng thương. Đạn dược có giới hạn.
           </p>
         </div>
-        <div class="mp-sys">
+        <div class="mp-sys reveal">
           <h5><i class="bi bi-heart-pulse"></i> Tinh thần & Hoảng loạn</h5>
           <p>
             Morale ảnh hưởng sức chiến đấu. Pháo gần → tai ù, rung tay, khó
             ngắm.
           </p>
         </div>
-        <div class="mp-sys">
+        <div class="mp-sys reveal">
           <h5><i class="bi bi-radio"></i> Radio & Âm thanh</h5>
           <p>
             Không nhạc nền. Chỉ tiếng pháo, chỉ huy, báo cáo — âm thanh chiến
             trường thực.
           </p>
         </div>
-        <div class="mp-sys">
+        <div class="mp-sys reveal">
           <h5><i class="bi bi-trophy"></i> Danh dự</h5>
           <p>
             Khen thưởng mọi vai trò: cứu nhiều nhất, kéo pháo, tiếp tế, công
             binh, chỉ huy xuất sắc.
           </p>
         </div>
-        <div class="mp-sys">
+        <div class="mp-sys reveal">
           <h5><i class="bi bi-camera-reels"></i> Replay</h5>
           <p>
             Sau trận — camera bay toàn bản đồ, hiển thị đường tiến quân, giao
@@ -1151,7 +1292,7 @@
     </section>
 
     <!-- DETAILED ACTS SNEAK -->
-    <section>
+    <section class="reveal">
       <div class="section-label">Hành trình</div>
       <h2>Những khoảnh khắc <span class="highlight">đáng nhớ</span></h2>
       <p class="lede">
@@ -1159,28 +1300,28 @@
         — mỗi ngày đều là một câu chuyện.
       </p>
       <div class="act-detail-grid">
-        <div class="act-detail">
+        <div class="act-detail reveal">
           <h4><i class="bi bi-camera"></i> Ngày 1 – Tân binh nhập ngũ</h4>
           <p>
             Nhận quân trang, làm quen tiểu đội, chụp ảnh lưu niệm trước khi lên
             đường.
           </p>
         </div>
-        <div class="act-detail">
+        <div class="act-detail reveal">
           <h4><i class="bi bi-mountain"></i> Ngày 6 – Kéo pháo qua núi</h4>
           <p>
             20 NPC cùng kéo pháo. Mưa, dây đứt — một đồng đội lấy thân chặn
             pháo. Không giao tranh, nhưng nặng nề nhất game.
           </p>
         </div>
-        <div class="act-detail">
+        <div class="act-detail reveal">
           <h4><i class="bi bi-moon"></i> Ngày 14 – Đêm trước trận đánh</h4>
           <p>
             Toàn bộ diễn ra ban đêm. Tuần tra, kiểm tra hào, chuyển đạn. Cảm
             giác hồi hộp trước cao trào.
           </p>
         </div>
-        <div class="act-detail">
+        <div class="act-detail reveal">
           <h4>
             <i class="bi bi-exclamation-triangle"></i> Ngày 42 – Đợt tấn công
             lớn
@@ -1190,14 +1331,14 @@
             tế, cứu thương, thích nghi địa hình.
           </p>
         </div>
-        <div class="act-detail">
+        <div class="act-detail reveal">
           <h4><i class="bi bi-sunrise"></i> Ngày 55 – Bình minh</h4>
           <p>
             Sau tiếng súng. Tự do đi bộ qua chiến trường, gặp đồng đội còn sống,
             dọn dẹp chiến trường.
           </p>
         </div>
-        <div class="act-detail">
+        <div class="act-detail reveal">
           <h4><i class="bi bi-flag"></i> Ngày 56 – Hậu chiến</h4>
           <p>
             Mở khóa bảo tàng, nhật ký, hồ sơ nhân vật, Museum Mode, New Game+ và
@@ -1208,7 +1349,7 @@
     </section>
 
     <!-- GALLERY -->
-    <section>
+    <section class="reveal">
       <div class="section-label">Hình ảnh</div>
       <h2>Góc nhìn chiến trường</h2>
       <p class="lede">
@@ -1217,42 +1358,42 @@
       </p>
       <div class="gallery">
         <div
-          class="gallery-item"
+          class="gallery-item reveal-scale"
           style="background: linear-gradient(135deg, #2e3a14, #1a1a1a)"
         >
           <span><i class="bi bi-tree"></i></span
           ><span class="glabel">Trại huấn luyện — Ngày 1</span>
         </div>
         <div
-          class="gallery-item"
+          class="gallery-item reveal-scale"
           style="background: linear-gradient(135deg, #4a2c1a, #1a1a1a)"
         >
           <span><i class="bi bi-mountains"></i></span
           ><span class="glabel">Kéo pháo qua núi — Ngày 6</span>
         </div>
         <div
-          class="gallery-item"
+          class="gallery-item reveal-scale"
           style="background: linear-gradient(135deg, #2c3e50, #0d0d0b)"
         >
           <span><i class="bi bi-moon"></i></span
           ><span class="glabel">Đêm trong chiến hào — Ngày 14</span>
         </div>
         <div
-          class="gallery-item"
+          class="gallery-item reveal-scale"
           style="background: linear-gradient(135deg, #5a3a1a, #1a1a1a)"
         >
           <span><i class="bi bi-fire"></i></span
           ><span class="glabel">Pháo kích mở màn — Ngày 15</span>
         </div>
         <div
-          class="gallery-item"
+          class="gallery-item reveal-scale"
           style="background: linear-gradient(135deg, #3a4a3a, #0d0d0b)"
         >
           <span><i class="bi bi-cloud-rain"></i></span
           ><span class="glabel">Mưa lớn — Ngày 29</span>
         </div>
         <div
-          class="gallery-item"
+          class="gallery-item reveal-scale"
           style="background: linear-gradient(135deg, #6a4a2a, #1a1a1a)"
         >
           <span><i class="bi bi-sunrise"></i></span
@@ -1262,7 +1403,7 @@
     </section>
 
     <!-- MUSEUM -->
-    <section id="museum">
+    <section class="reveal" id="museum">
       <div class="section-label">Hậu chiến</div>
       <h2>Bảo tàng & <span class="highlight">nội dung mở khóa</span></h2>
       <p class="lede">
@@ -1270,7 +1411,7 @@
         đặc biệt — từ Museum Mode đến New Game+.
       </p>
       <div class="museum-items">
-        <div class="museum-item">
+        <div class="museum-item reveal-scale">
           <div class="m-icon"><i class="bi bi-buildings"></i></div>
           <h4>Museum Mode</h4>
           <p>
@@ -1278,29 +1419,29 @@
             3D
           </p>
         </div>
-        <div class="museum-item">
+        <div class="museum-item reveal-scale">
           <div class="m-icon"><i class="bi bi-journal-text"></i></div>
           <h4>Nhật ký chiến dịch</h4>
           <p>Toàn bộ nhật ký, ảnh chụp, hội thoại và sự kiện quan trọng</p>
         </div>
-        <div class="museum-item">
+        <div class="museum-item reveal-scale">
           <div class="m-icon"><i class="bi bi-people-fill"></i></div>
           <h4>Hồ sơ nhân vật</h4>
           <p>Thông tin chi tiết về những NPC đã đồng hành suốt 56 ngày</p>
         </div>
-        <div class="museum-item">
+        <div class="museum-item reveal-scale">
           <div class="m-icon"><i class="bi bi-arrow-repeat"></i></div>
           <h4>New Game+</h4>
           <p>Trang phục mới, độ khó cao hơn, bộ sưu tập vật phẩm</p>
         </div>
-        <div class="museum-item">
+        <div class="museum-item reveal-scale">
           <div class="m-icon"><i class="bi bi-film"></i></div>
           <h4>Replay Mission</h4>
           <p>
             Chơi lại từng ngày, giữ nguyên thành tích và thời gian hoàn thành
           </p>
         </div>
-        <div class="museum-item">
+        <div class="museum-item reveal-scale">
           <div class="m-icon"><i class="bi bi-bar-chart"></i></div>
           <h4>Tổng kết chiến dịch</h4>
           <p>
@@ -1311,7 +1452,7 @@
     </section>
 
     <!-- CREW -->
-    <section>
+    <section class="reveal">
       <div class="section-label">Đồng đội</div>
       <h2>Những người bạn <span class="highlight">đồng hành</span></h2>
       <p class="lede">
@@ -1319,27 +1460,27 @@
         chuyện riêng và số phận thay đổi theo quyết định của bạn.
       </p>
       <div class="crew">
-        <div class="crew-card">
+        <div class="crew-card reveal">
           <div class="avatar"><i class="bi bi-patch-check"></i></div>
           <h4>Đại đội trưởng</h4>
           <p>Người chỉ huy giàu kinh nghiệm, dẫn dắt đơn vị qua 56 ngày</p>
         </div>
-        <div class="crew-card">
+        <div class="crew-card reveal">
           <div class="avatar"><i class="bi bi-star"></i></div>
           <h4>Tiểu đội trưởng</h4>
           <p>Sát cánh cùng người chơi trong từng nhiệm vụ nhỏ</p>
         </div>
-        <div class="crew-card">
+        <div class="crew-card reveal">
           <div class="avatar"><i class="bi bi-hospital"></i></div>
           <h4>Quân y</h4>
           <p>Người giữ mạng sống cho cả đơn vị giữa chiến trường</p>
         </div>
-        <div class="crew-card">
+        <div class="crew-card reveal">
           <div class="avatar"><i class="bi bi-wrench"></i></div>
           <h4>Công binh</h4>
           <p>Mở đường, xây cầu, đào hào — hậu cần là sức mạnh</p>
         </div>
-        <div class="crew-card">
+        <div class="crew-card reveal">
           <div class="avatar"><i class="bi bi-people"></i></div>
           <h4>Người bạn thân</h4>
           <p>Người đầu tiên bắt chuyện với tân binh — đồng hành đến cuối</p>
@@ -1357,5 +1498,95 @@
         © 2026 · Phiên bản giới thiệu · Nội dung đang trong quá trình phát triển
       </p>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // ── IntersectionObserver for scroll reveals ──
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 },
+        );
+
+        document
+          .querySelectorAll(".reveal, .reveal-left, .reveal-scale")
+          .forEach((el) => observer.observe(el));
+
+        // ── Staggered card reveals ──
+        const staggerContainers = document.querySelectorAll(
+          ".philosophy, .features, .mp-grid, .act-detail-grid, .museum-items, .crew, .mp-systems, .gallery",
+        );
+        const staggerObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const children = [...entry.target.children].filter(
+                  (c) =>
+                    c.matches &&
+                    c.matches(
+                      ".phil-card, .feature, .mp-card, .act-detail, .museum-item, .crew-card, .mp-sys, .gallery-item",
+                    ),
+                );
+                children.forEach((child, i) => {
+                  child.style.opacity = "0";
+                  child.style.transform = "translateY(30px)";
+                  child.style.transition = `opacity 0.6s ease ${i * 80}ms, transform 0.6s cubic-bezier(0.23,1,0.32,1) ${i * 80}ms`;
+                  requestAnimationFrame(() => {
+                    child.style.opacity = "1";
+                    child.style.transform = "translateY(0)";
+                  });
+                });
+                staggerObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 },
+        );
+        staggerContainers.forEach((el) => staggerObserver.observe(el));
+
+        // ── Counter animation ──
+        const counterObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const el = entry.target;
+                const numEl = el.querySelector(".num");
+                if (!numEl) return;
+                const raw = numEl.textContent.trim();
+                const suffix = raw.replace(/[\d]/g, "");
+                const target = parseInt(raw, 10);
+                if (isNaN(target)) return;
+                el.classList.add("counting");
+                let current = 0;
+                const step = Math.max(1, Math.floor(target / 40));
+                const dur = 1200;
+                const interval = dur / (target / step);
+                const timer = setInterval(() => {
+                  current += step;
+                  if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                    el.classList.remove("counting");
+                  }
+                  numEl.textContent = current + suffix;
+                }, interval);
+                counterObserver.unobserve(el);
+              }
+            });
+          },
+          { threshold: 0.5 },
+        );
+
+        document
+          .querySelectorAll(".stat")
+          .forEach((el) => counterObserver.observe(el));
+      });
+    </script>
   </body>
 </html>
